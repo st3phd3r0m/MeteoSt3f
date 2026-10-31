@@ -135,12 +135,12 @@ private fun WeatherWidgetSuccess(
     )
     Spacer(GlanceModifier.height(6.dp))
     Row(verticalAlignment = Alignment.Vertical.CenterVertically) {
-        Text(emoji, style = TextStyle(fontSize = 28.sp))
+        Text(emoji, style = TextStyle(fontSize = 40.sp))
         Spacer(GlanceModifier.width(8.dp))
         Column {
             Text(
                 temperature,
-                style = TextStyle(color = WidgetTextColor, fontSize = 24.sp, fontWeight = FontWeight.Bold),
+                style = TextStyle(color = WidgetTextColor, fontSize = 32.sp, fontWeight = FontWeight.Bold),
             )
             Text(
                 description,
@@ -158,13 +158,13 @@ private fun WeatherWidgetSuccess(
             ) {
                 Text(
                     dailyLabels[i],
-                    style = TextStyle(color = WidgetTextColor, fontSize = 10.sp),
+                    style = TextStyle(color = WidgetTextColor, fontSize = 11.sp),
                     maxLines = 1,
                 )
-                Text(dailyEmojis.getOrElse(i) { "" }, style = TextStyle(fontSize = 18.sp))
+                Text(dailyEmojis.getOrElse(i) { "" }, style = TextStyle(fontSize = 28.sp))
                 Text(
                     "${dailyMin.getOrElse(i) { "" }}/${dailyMax.getOrElse(i) { "" }}",
-                    style = TextStyle(color = WidgetTextColor, fontSize = 10.sp),
+                    style = TextStyle(color = WidgetTextColor, fontSize = 13.sp, fontWeight = FontWeight.Bold),
                     maxLines = 1,
                 )
             }
