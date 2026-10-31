@@ -34,6 +34,9 @@ object WidgetKeys {
     val DAILY_EMOJIS = stringPreferencesKey("daily_emojis")
     val DAILY_MIN = stringPreferencesKey("daily_min")
     val DAILY_MAX = stringPreferencesKey("daily_max")
+    val APPARENT_TEMPERATURE = stringPreferencesKey("apparent_temperature")
+    val HUMIDITY = stringPreferencesKey("humidity")
+    val WIND = stringPreferencesKey("wind")
     val ERROR = stringPreferencesKey("error")
 }
 
@@ -123,6 +126,9 @@ internal fun writeWidgetPrefs(
     prefs[WidgetKeys.TEMPERATURE] = state.current.temperature
     prefs[WidgetKeys.DESCRIPTION] = state.current.description
     prefs[WidgetKeys.EMOJI] = state.current.emoji
+    prefs[WidgetKeys.APPARENT_TEMPERATURE] = state.current.apparentTemperature
+    prefs[WidgetKeys.HUMIDITY] = state.current.humidity
+    prefs[WidgetKeys.WIND] = state.current.wind
     prefs[WidgetKeys.DAILY_LABELS] = days.joinToString(WIDGET_DAILY_SEPARATOR) { it.label }
     prefs[WidgetKeys.DAILY_EMOJIS] = days.joinToString(WIDGET_DAILY_SEPARATOR) { it.emoji }
     prefs[WidgetKeys.DAILY_MIN] = days.joinToString(WIDGET_DAILY_SEPARATOR) { it.temperatureMin }

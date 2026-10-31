@@ -92,6 +92,9 @@ private fun WeatherWidgetContent() {
                 temperature = temperature,
                 description = prefs[WidgetKeys.DESCRIPTION].orEmpty(),
                 emoji = prefs[WidgetKeys.EMOJI].orEmpty(),
+                apparentTemperature = prefs[WidgetKeys.APPARENT_TEMPERATURE].orEmpty(),
+                humidity = prefs[WidgetKeys.HUMIDITY].orEmpty(),
+                wind = prefs[WidgetKeys.WIND].orEmpty(),
                 dailyLabels = prefs[WidgetKeys.DAILY_LABELS].orEmpty().split(WIDGET_DAILY_SEPARATOR),
                 dailyEmojis = prefs[WidgetKeys.DAILY_EMOJIS].orEmpty().split(WIDGET_DAILY_SEPARATOR),
                 dailyMin = prefs[WidgetKeys.DAILY_MIN].orEmpty().split(WIDGET_DAILY_SEPARATOR),
@@ -123,6 +126,9 @@ private fun WeatherWidgetSuccess(
     temperature: String,
     description: String,
     emoji: String,
+    apparentTemperature: String,
+    humidity: String,
+    wind: String,
     dailyLabels: List<String>,
     dailyEmojis: List<String>,
     dailyMin: List<String>,
@@ -142,10 +148,31 @@ private fun WeatherWidgetSuccess(
                 temperature,
                 style = TextStyle(color = WidgetTextColor, fontSize = 32.sp, fontWeight = FontWeight.Bold),
             )
+            if (apparentTemperature.isNotEmpty()) {
+                Text(
+                    apparentTemperature,
+                    style = TextStyle(color = WidgetTextColor, fontSize = 16.sp),
+                    maxLines = 1,
+                )
+            }
+        }
+        Spacer(GlanceModifier.width(40.dp))
+        Column {
+            Spacer(GlanceModifier.width(10.dp))
             Text(
                 description,
                 style = TextStyle(color = WidgetTextColor, fontSize = 11.sp),
                 maxLines = 1,
+            )
+            Text(
+                humidity, 
+                style = TextStyle(color = WidgetTextColor, fontSize = 11.sp), 
+                maxLines = 1
+            )
+            Text(
+                wind, 
+                style = TextStyle(color = WidgetTextColor, fontSize = 11.sp), 
+                maxLines = 1
             )
         }
     }
