@@ -33,7 +33,18 @@ object WeatherCode {
         99 to ("Orage violent avec grêle" to "⛈️"),
     )
 
+    // Seuls les codes "ciel clair/peu nuageux" ont un rendu jour/nuit distinct dans les jeux
+    // d'icônes météo usuels ; au-delà (pluie, neige, orage...), l'icône reste la même.
+    private val nightEmoji = mapOf(
+        0 to "🌙",
+        1 to "🌙",
+        2 to "🌙☁️",
+    )
+
     fun describe(code: Int): String = entries[code]?.first ?: "Conditions inconnues"
 
-    fun emoji(code: Int): String = entries[code]?.second ?: "❓"
+    fun emoji(code: Int, isDay: Boolean = true): String {
+        if (!isDay) nightEmoji[code]?.let { return it }
+        return entries[code]?.second ?: "❓"
+    }
 }

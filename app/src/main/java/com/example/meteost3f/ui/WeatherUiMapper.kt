@@ -15,7 +15,7 @@ internal fun WeatherResponse.toUiState(locationName: String): WeatherUiState.Suc
         temperature = "${current.temperature.roundToInt()}°",
         apparentTemperature = "Ressenti ${current.apparentTemperature.roundToInt()}°",
         description = WeatherCode.describe(current.weatherCode),
-        emoji = WeatherCode.emoji(current.weatherCode),
+        emoji = WeatherCode.emoji(current.weatherCode, isDay = current.isDay == 1),
         humidity = "${current.humidity}% humidité",
         wind = "${current.windSpeed.roundToInt()} km/h",
         sunrise = daily.sunrise.firstOrNull()?.let { LocalDateTime.parse(it).format(timeFormatter) } ?: "--:--",
@@ -28,7 +28,7 @@ internal fun WeatherResponse.toUiState(locationName: String): WeatherUiState.Suc
         HourlyUi(
             label = LocalDateTime.parse(hourly.time[i]).format(hourFormatter),
             temperature = "${hourly.temperature[i].roundToInt()}°",
-            emoji = WeatherCode.emoji(hourly.weatherCode[i]),
+            emoji = WeatherCode.emoji(hourly.weatherCode[i], isDay = hourly.isDay[i] == 1),
         )
     }
 

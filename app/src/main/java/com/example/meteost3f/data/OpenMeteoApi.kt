@@ -39,8 +39,8 @@ class OpenMeteoApi(
             .get("https://api.open-meteo.com/v1/forecast") {
                 parameter("latitude", latitude)
                 parameter("longitude", longitude)
-                parameter("current", "temperature_2m,relative_humidity_2m,apparent_temperature,weather_code,wind_speed_10m")
-                parameter("hourly", "temperature_2m,weather_code")
+                parameter("current", "temperature_2m,relative_humidity_2m,apparent_temperature,weather_code,wind_speed_10m,is_day")
+                parameter("hourly", "temperature_2m,weather_code,is_day")
                 parameter("daily", "weather_code,temperature_2m_max,temperature_2m_min,sunrise,sunset")
                 parameter("timezone", "auto")
                 parameter("forecast_days", 14)

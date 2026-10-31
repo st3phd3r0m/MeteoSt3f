@@ -21,6 +21,7 @@ data class CurrentWeather(
     @SerialName("apparent_temperature") val apparentTemperature: Double,
     @SerialName("weather_code") val weatherCode: Int,
     @SerialName("wind_speed_10m") val windSpeed: Double,
+    @SerialName("is_day") val isDay: Int,
 )
 
 @Serializable
@@ -28,6 +29,7 @@ data class HourlyWeather(
     val time: List<String>,
     @SerialName("temperature_2m") val temperature: List<Double>,
     @SerialName("weather_code") val weatherCode: List<Int>,
+    @SerialName("is_day") val isDay: List<Int>,
 )
 
 @Serializable
