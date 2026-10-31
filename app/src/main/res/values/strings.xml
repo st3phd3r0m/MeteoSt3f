@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">MeteoSt3f</string>
+    <string name="weather_widget_description">Affiche la météo actuelle et le lever/coucher du soleil</string>
+</resources>
